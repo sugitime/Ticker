@@ -1,5 +1,6 @@
 <?php
 
+namespace MT;
 /**
  * Similar to Facebook Apps, you'll need to create a Twitter app first: https://apps.twitter.com/
  * 
