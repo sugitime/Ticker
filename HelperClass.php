@@ -53,6 +53,19 @@ class HelperClass {
 
     }
 
+    public function emailGrab() {
+        if($this->e === null) {
+            $this->e = new EmailClass(
+                $this->config['email']['imap_server'],
+                $this->config['email']['imap_port'],
+                $this->config['email']['username'],
+                $this->config['email']['password'],
+                $this->config['email']['tmp_dir']);
+        }
+
+        return $this->e->fetchMail();
+    }
+
     public function debug($msg)
     {
         return "<pre>" . var_dump($msg) . "</pre>";

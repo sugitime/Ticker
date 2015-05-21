@@ -26,6 +26,13 @@ class Config extends HelperClass{
         $config['twitter']['tweet_count'] = "5"; //TODO: REPLACE THIS!
         $config['twitter']['template'] = "widgets/twitter.html";
         $this->co = $config;
+
+        $config['email']['imap_server'] = "your info";
+        $config['email']['username'] = "your info";
+        $config['email']['password'] = base64_decode("your base64 encoded info");
+        $config['email']['smime_pubkey'] = "your info";
+        $config['email']['signatures'][0] = "your info";
+        $config['email']['signatures'][1] = "your info";
     }
 
     public function getConf() {

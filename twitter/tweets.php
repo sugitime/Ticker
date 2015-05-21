@@ -113,6 +113,10 @@ function display_latest_tweets(
                 // Open the twitter wrapping element.
                 $twitter_html = $twitter_wrap_open;
 
+                if(sizeof($get_tweets) < 1) {
+                    return false;
+                }
+
                 // Iterate over tweets.
                 foreach($get_tweets as $tweet) {
 

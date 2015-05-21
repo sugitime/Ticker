@@ -15,7 +15,7 @@ $h = new \MT\HelperClass();
 
 //echo $h->getTweets();
 
+echo $h->emailGrab();
 echo $h->twitterGrab();
-
 
 ?>
