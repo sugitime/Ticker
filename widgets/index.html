@@ -1,0 +1,98 @@
+<html> 
+<title>Transparent DIV</title> 
+<head> 
+<style type="text/css"> 
+body {
+	background: url(widgets/index_files/wp-white.png) no-repeat center center fixed;
+	background-position: right bottom
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: white; 
+	font-size: 20px; 
+} 
+.containers-right  { 
+	width: 90%; 
+	height: 40%; 
+	margin: 2 auto; 
+	background-color: black; 
+	opacity: 0.70; 
+	border-radius: 15px 50px 15px 15px;
+    padding: 20px; 
+} 
+.containers-full { 
+	width: 90%; 
+	height: 84%; 
+	margin: 2 auto; 
+	background-color: black; 
+	opacity: 0.70; 
+	border-radius: 50px 15px 15px 15px;
+    padding: 20px; 
+}
+.containers-mid { 
+	width: 90%; 
+	height: 40%; 
+	margin: 2 auto; 
+	background-color: black; 
+	opacity: 0.70; 
+	border-radius: 15px 15px 15px 15px;
+    padding: 20px; 
+}
+.bottom  { 
+	width: 97%; 
+	height: 8%; 
+	margin: 2 auto; 
+	background-color: black; 
+	opacity: 0.70; 
+	border-radius: 15px 15px 50px 50px;
+    padding: 20px;
+} 
+p { padding-top: 20px; 
+}
+.left { 
+	float: left; 
+	width: 33%; 
+}
+.right { 
+	float: left; 
+	width: 33%; 
+}
+.center { 
+	float: left; 
+	width: 33%; 
+}
+.footer {
+	position:fixed;
+	width: 98%;
+	bottom:2px;
+}
+
+</style> 
+</head> 
+<body> 
+<div class="left">
+<div class="containers-full"><center><p>News Feed!</p></center>
+</div> 
+</div>
+<div class="center">
+<div class="containers-mid"><center><p>MOTD</p></center>
+</div>
+<div class="containers-mid">
+<p>Calendar</p>
+</div>
+</div>
+<div class="right">
+<div class="containers-right"><center><p>Sec Feed</p></center>
+</div>
+<div class="containers-mid">
+<p>Bulletin Board</p>
+</div>
+</div>
+<div class="footer">
+<div class="bottom">
+<marquee scrollamount="10"><?php echo $twitter; ?></marquee>
+</div>
+</div>
+</body> 
+</html>

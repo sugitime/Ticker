@@ -21,15 +21,7 @@ class TwitterClass extends HelperClass {
             $at,
             $ats,
             $count);
-        $template = $this->getTemplate();
-        return $template;
+        //$template = $this->getTemplate($template);
+        return $content;
     }
-
-    private function getTemplate() {
-        $file = fopen($this->config['twitter']['template'], 'r');
-        $c = fread($file,filesize($this->config['twitter']['template']));
-        fclose($file);
-        return $c;
-    }
-
 }

@@ -13,9 +13,11 @@ require_once('HelperClass.php');
 
 $h = new \MT\HelperClass();
 
-//echo $h->getTweets();
 
-echo $h->emailGrab();
-echo $h->twitterGrab();
+//echo $h->emailGrab();
+$twitter = $h->twitterGrab();
+
+include($h->template);
+
 
 ?>

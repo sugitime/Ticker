@@ -31,18 +31,20 @@ class HelperClass {
     protected $s;
     protected $t;
     protected $config;
+    public $template;
 
     public function __construct()
     {
         $this->conf = new \MT\Config();
         $this->config = $this->conf->getConf();
+        $this->template = $this->config['template'];
     }
 
     public function twitterGrab() {
         if($this->t === null) {
             $this->t = new TwitterClass();
         }
-        return $this->t->tweetResponder(
+        $twitterReply = $this->t->tweetResponder(
             'bishopfox',
             $this->config['twitter']['consumer_key'],
             $this->config['twitter']['consumer_secret'],
@@ -50,7 +52,26 @@ class HelperClass {
             $this->config['twitter']['access_token_secret'],
             15
         );
+        //var_dump($twitterReply);
 
+        //So... lets grab the twitter name, twitter pic and tweet.
+        $twitterData = array();
+        foreach($twitterReply as $tweet) {
+            $tmp = array();
+            $tmp['user'] = $tweet->user->name;
+            //https, cause we're sexy like that.
+            $tmp['pic'] = $tweet->user->profile_image_url_https;
+            $tmp['tweet'] = $tweet->text;
+            array_push($twitterData, $tmp);
+        }
+
+        $retstring = "";
+        foreach($twitterData as $td) {
+            extract($td);
+            $retstring .= "<b>" . $td['user'] . ":</b> " . $td['tweet'] . "       ";
+        }
+        return $retstring;
+        //extract($twitterData);
     }
 
     public function emailGrab() {
@@ -64,6 +85,10 @@ class HelperClass {
         }
 
         return $this->e->fetchMail();
+    }
+
+    public function render() {
+
     }
 
     public function debug($msg)
